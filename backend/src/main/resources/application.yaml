@@ -1,0 +1,51 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/recsec
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  data:
+    redis:
+      host: redis
+      port: 6379
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: gpt-4o
+        enabled: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8081/realms/SecuRe
+          jwk-set-uri: http://keycloak:8080/realms/SecuRe/protocol/openid-connect/certs
+
+  docker:
+    compose:
+      lifecycle-management: start_only
+
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
+
+springdoc:
+  swagger-ui:
+    display-request-duration: true
+    tags-sorter: alpha
+    operations-sorter: alpha
+    defaultModelsExpandDepth: -1
+    doc-expansion: list
+  api-docs:
+    enabled: true
+
+recommendation:
+  top-k: 10
