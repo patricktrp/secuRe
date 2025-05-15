@@ -20,8 +20,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8081/realms/SecuRe
-          jwk-set-uri: http://keycloak:8080/realms/SecuRe/protocol/openid-connect/certs
+          issuer-uri: http://localhost:8081/realms/RecSec
+          jwk-set-uri: http://localhost:8081/realms/RecSec/protocol/openid-connect/certs
 
   docker:
     compose:

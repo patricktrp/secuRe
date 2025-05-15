@@ -1,0 +1,57 @@
+{
+  "intent": "Provide a simple and familiar method of authentication by verifying a secret known only to the user and the authentication system.",
+  "problem": "How can a system authenticate users using a method that is easy to implement and understand, but still secure enough for basic use cases?",
+  "solution": "Password-based authentication verifies a user's identity by comparing a provided password against a stored hash of the correct password. During registration, the system stores a hashed version of the password, typically using a one-way hashing algorithm. On login, the user enters their password, which is hashed and compared to the stored value. If they match, authentication succeeds. Security enhancements such as salting, key-stretching (e.g., using bcrypt, PBKDF2), and account lockout mechanisms are often added to mitigate brute-force and dictionary attacks.",
+  "consequences": {
+    "negative": [
+      {
+        "factor": "Credential Theft",
+        "reason": "Passwords are vulnerable to phishing, keylogging, database breaches, and reuse across services."
+      },
+      {
+        "factor": "Poor Usability",
+        "reason": "Users often create weak passwords, forget strong ones, or reuse them, which degrades both security and user experience."
+      },
+      {
+        "factor": "Brute-Force Attacks",
+        "reason": "Without proper safeguards (e.g., rate-limiting or key-stretching), passwords can be guessed through automated attacks."
+      },
+      {
+        "factor": "Maintenance Overhead",
+        "reason": "Systems need to implement secure password storage, reset mechanisms, and often additional checks like strength validation."
+      }
+    ],
+    "positive": [
+      {
+        "factor": "Simplicity",
+        "reason": "Password-based authentication is widely understood, easy to implement, and requires no additional devices or infrastructure."
+      },
+      {
+        "factor": "Low Cost",
+        "reason": "No hardware or third-party service is required, making it cost-effective for basic applications."
+      },
+      {
+        "factor": "Universal Support",
+        "reason": "Virtually all systems support passwords, ensuring compatibility across platforms and user familiarity."
+      },
+      {
+        "factor": "Offline Verification",
+        "reason": "The authentication process can be performed entirely on the server without needing external dependencies."
+      }
+    ]
+  },
+  "participants": {
+    "human": [
+      {
+        "name": "User",
+        "description": "The individual who creates and enters a password to authenticate their identity."
+      }
+    ],
+    "non-human": [
+      {
+        "name": "Authentication System",
+        "description": "Stores hashed passwords and verifies provided credentials during the login process."
+      }
+    ]
+  }
+}

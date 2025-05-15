@@ -4,7 +4,7 @@ import Keycloak from "keycloak-js";
 // Initialize Keycloak instance with configuration
 const keycloak = new Keycloak({
   url: "http://localhost:8081",
-  realm: "SecuRe",
+  realm: "RecSec",
   clientId: "webapp",
 });
 
